@@ -8,7 +8,7 @@ terraform {
 }
 
 locals {
-  env_vars    = read_terragrunt_config("common.hcl").inputs
+  env_vars    = read_terragrunt_config(find_in_parent_folders("common.hcl")).inputs
   profile     = local.env_vars.profile
   region      = local.env_vars.region
   bucket_name = local.env_vars.bucket_name
